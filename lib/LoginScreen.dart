@@ -8,6 +8,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final name = TextEditingController();
+  final number = TextEditingController();
+  final email = TextEditingController();
+  final password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,6 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               TextField(
                 keyboardType: TextInputType.emailAddress,
+                controller: email,
                 decoration: InputDecoration(
                     labelText: 'Email', border: OutlineInputBorder()),
               ),
@@ -37,6 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               TextField(
                 obscureText: true,
+                controller: password,
                 decoration: InputDecoration(
                     labelText: 'Password', border: OutlineInputBorder()),
               ),
@@ -45,10 +52,10 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return DetailScreen();
-                    }));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailScreen()));
                   },
                   child: Text(
                     'Login',

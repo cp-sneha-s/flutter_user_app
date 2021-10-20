@@ -32,8 +32,7 @@ class DetailScreen extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.all(20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          textDirection: TextDirection.ltr,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               'Name: ' + nameHolder,
