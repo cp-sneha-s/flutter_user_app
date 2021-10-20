@@ -33,17 +33,18 @@ class DetailScreen extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
+          textDirection: TextDirection.ltr,
           children: [
             Text(
-              'Name: ' + nameHolder,
+              nameHolder,
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              'Number: ' + numberHolder,
+              numberHolder,
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              'Email: ' + emailHolder,
+              emailHolder,
               style: TextStyle(fontSize: 20),
             ),
           ],

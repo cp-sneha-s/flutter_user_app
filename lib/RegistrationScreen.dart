@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_user_app/DetailScreen.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'LoginScreen.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -20,6 +20,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     // TODO: implement disposepa
     super.dispose();
     password.dispose();
+  }
+
+  void storeDetail() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    setState(() {
+      sp.setString('userName', name.text.toString());
+      sp.setString('userNumber', number.text.toString());
+      sp.setString('userEmail', email.text.toString());
+      sp.setString('userPassword', password.text.toString());
+    });
   }
 
   @override
@@ -68,6 +78,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           ElevatedButton(
             onPressed: () {
+              storeDetail();
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -88,6 +99,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
           ElevatedButton(
             onPressed: () {
+              setState(() {
+                storeDetail();
+              });
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => LoginScreen()));
             },
